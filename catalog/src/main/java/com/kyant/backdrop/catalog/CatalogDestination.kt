@@ -9,6 +9,7 @@ enum class CatalogDestination {
     BottomTabs,
     Dialog,
 
+    LockScreen,
     ControlCenter,
     Magnifier,
 
