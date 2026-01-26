@@ -25,7 +25,7 @@ import com.kyant.backdrop.drawBackdrop
 import com.kyant.backdrop.effects.blur
 import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.effects.vibrancy
-import com.kyant.capsule.ContinuousCapsule
+import com.kyant.shapes.Capsule
 import kotlin.math.abs
 import kotlin.math.atan2
 import kotlin.math.cos
@@ -54,7 +54,7 @@ fun LiquidButton(
         modifier
             .drawBackdrop(
                 backdrop = backdrop,
-                shape = { ContinuousCapsule },
+                shape = { Capsule },
                 effects = {
                     vibrancy()
                     blur(2f.dp.toPx())

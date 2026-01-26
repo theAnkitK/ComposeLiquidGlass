@@ -30,8 +30,8 @@ import com.kyant.backdrop.effects.blur
 import com.kyant.backdrop.effects.colorControls
 import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.highlight.Highlight
-import com.kyant.capsule.ContinuousCapsule
-import com.kyant.capsule.ContinuousRoundedRectangle
+import com.kyant.shapes.Capsule
+import com.kyant.shapes.RoundedRectangle
 
 @Composable
 fun DialogContent() {
@@ -59,7 +59,7 @@ fun DialogContent() {
                 .padding(40f.dp)
                 .drawBackdrop(
                     backdrop = backdrop,
-                    shape = { ContinuousRoundedRectangle(48f.dp) },
+                    shape = { RoundedRectangle(48f.dp) },
                     effects = {
                         colorControls(
                             brightness = if (isLightTheme) 0.2f else 0f,
@@ -105,7 +105,7 @@ fun DialogContent() {
             ) {
                 Row(
                     Modifier
-                        .clip(ContinuousCapsule)
+                        .clip(Capsule)
                         .background(containerColor.copy(0.2f))
                         .clickable {}
                         .height(48f.dp)
@@ -121,7 +121,7 @@ fun DialogContent() {
                 }
                 Row(
                     Modifier
-                        .clip(ContinuousCapsule)
+                        .clip(Capsule)
                         .background(accentColor)
                         .clickable {}
                         .height(48f.dp)

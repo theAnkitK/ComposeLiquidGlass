@@ -36,7 +36,7 @@ import com.kyant.backdrop.effects.blur
 import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.effects.vibrancy
 import com.kyant.backdrop.highlight.Highlight
-import com.kyant.capsule.ContinuousRoundedRectangle
+import com.kyant.shapes.RoundedRectangle
 import kotlinx.coroutines.launch
 import kotlin.math.PI
 import kotlin.math.cos
@@ -64,7 +64,7 @@ fun GlassPlaygroundContent() {
                 .statusBarsPadding()
                 .drawBackdrop(
                     backdrop = backdrop,
-                    shape = { ContinuousRoundedRectangle(256f.dp / 2f * cornerRadiusFrac) },
+                    shape = { RoundedRectangle(256f.dp / 2f * cornerRadiusFrac) },
                     effects = {
                         val minDimension = size.minDimension
                         vibrancy()
@@ -126,7 +126,7 @@ fun GlassPlaygroundContent() {
                         .navigationBarsPadding()
                         .drawBackdrop(
                             backdrop = backdrop,
-                            shape = { ContinuousRoundedRectangle(32f.dp) },
+                            shape = { RoundedRectangle(32f.dp) },
                             effects = {
                                 vibrancy()
                                 blur(4f.dp.toPx())

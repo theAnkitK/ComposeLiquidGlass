@@ -49,8 +49,6 @@ private class LayerBackdropNode(
     var backdrop: LayerBackdrop
 ) : DrawModifierNode, GlobalPositionAwareModifierNode, Modifier.Node() {
 
-    override val shouldAutoInvalidate: Boolean = false
-
     override fun ContentDrawScope.draw() {
         drawContent()
         recordLayer(backdrop.graphicsLayer) { backdrop.onDraw(this@draw) }

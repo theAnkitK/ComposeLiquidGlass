@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.kyant.backdrop.backdrops.rememberCanvasBackdrop
 import com.kyant.backdrop.catalog.BackdropDemoScaffold
 import com.kyant.backdrop.catalog.components.LiquidToggle
-import com.kyant.capsule.ContinuousRoundedRectangle
+import com.kyant.shapes.RoundedRectangle
 
 @Composable
 fun ToggleContent() {
@@ -45,7 +45,7 @@ fun ToggleContent() {
             Box(
                 Modifier
                     .padding(24f.dp)
-                    .clip(ContinuousRoundedRectangle(32f.dp))
+                    .clip(RoundedRectangle(32f.dp))
                     .background(backgroundColor)
                     .padding(24f.dp)
             ) {

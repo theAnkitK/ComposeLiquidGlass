@@ -30,8 +30,8 @@ import com.kyant.backdrop.catalog.utils.LoremIpsum
 import com.kyant.backdrop.drawBackdrop
 import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.shadow.InnerShadow
-import com.kyant.capsule.ContinuousCapsule
-import com.kyant.capsule.ContinuousRoundedRectangle
+import com.kyant.shapes.Capsule
+import com.kyant.shapes.RoundedRectangle
 
 @Composable
 fun MagnifierContent() {
@@ -54,7 +54,7 @@ fun MagnifierContent() {
             Modifier
                 .layerBackdrop(contentBackdrop)
                 .padding(24f.dp)
-                .clip(ContinuousRoundedRectangle(32f.dp))
+                .clip(RoundedRectangle(32f.dp))
                 .background(backgroundColor.copy(alpha = 0.9f))
                 .padding(24f.dp),
             style = TextStyle(contentColor, 16f.sp)
@@ -69,7 +69,7 @@ fun MagnifierContent() {
                 }
                 .draggable2D(rememberDraggable2DState { delta -> offset += delta })
                 .layerBackdrop(cursorBackdrop)
-                .background(accentColor, ContinuousCapsule)
+                .background(accentColor, Capsule)
                 .size(4f.dp, 24f.dp)
         )
 
@@ -82,7 +82,7 @@ fun MagnifierContent() {
                 }
                 .drawBackdrop(
                     backdrop = rememberCombinedBackdrop(backdrop, contentBackdrop, cursorBackdrop),
-                    shape = { ContinuousCapsule },
+                    shape = { Capsule },
                     effects = {
                         lens(
                             8f.dp.toPx(),

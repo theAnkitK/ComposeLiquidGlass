@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.vanniktech.maven.publish")
 }
@@ -41,13 +40,14 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.kyant.shapes)
 }
 
 mavenPublishing {
     publishToMavenCentral()
     signAllPublications()
 
-    coordinates("io.github.kyant0", "backdrop", "1.0.4")
+    coordinates("io.github.kyant0", "backdrop", "1.0.5")
 
     pom {
         name.set("Backdrop")

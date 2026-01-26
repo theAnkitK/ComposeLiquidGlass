@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
@@ -73,6 +72,6 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.material.ripple)
-    implementation("io.github.kyant0:capsule:2.1.2")
+    implementation(libs.kyant.shapes)
     implementation(project(":backdrop"))
 }

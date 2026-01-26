@@ -26,7 +26,7 @@ import com.kyant.backdrop.catalog.utils.rememberSdfShader
 import com.kyant.backdrop.drawPlainBackdrop
 import com.kyant.backdrop.effects.blur
 import com.kyant.backdrop.effects.colorControls
-import com.kyant.capsule.ContinuousRectangle
+import com.kyant.shapes.Capsule
 
 @Composable
 fun LockScreenContent() {
@@ -56,7 +56,7 @@ fun LockScreenContent() {
                         .draggable2D(rememberDraggable2DState { delta -> offset += delta })
                         .drawPlainBackdrop(
                             backdrop = backdrop,
-                            shape = { ContinuousRectangle },
+                            shape = { Capsule },
                             effects = {
                                 colorControls(brightness = -0.1f, contrast = 0.75f, saturation = 1.5f)
                                 blur(2f.dp.toPx())

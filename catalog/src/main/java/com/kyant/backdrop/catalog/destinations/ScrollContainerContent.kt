@@ -18,7 +18,7 @@ import com.kyant.backdrop.catalog.BackdropDemoScaffold
 import com.kyant.backdrop.drawBackdrop
 import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.effects.vibrancy
-import com.kyant.capsule.ContinuousRoundedRectangle
+import com.kyant.shapes.RoundedRectangle
 
 @Composable
 fun ScrollContainerContent() {
@@ -37,7 +37,7 @@ fun ScrollContainerContent() {
                     Modifier
                         .drawBackdrop(
                             backdrop = backdrop,
-                            shape = { ContinuousRoundedRectangle(32f.dp) },
+                            shape = { RoundedRectangle(32f.dp) },
                             effects = {
                                 vibrancy()
                                 lens(16f.dp.toPx(), 32f.dp.toPx())

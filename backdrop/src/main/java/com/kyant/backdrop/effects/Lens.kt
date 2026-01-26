@@ -10,6 +10,7 @@ import androidx.compose.ui.util.fastCoerceAtMost
 import com.kyant.backdrop.BackdropEffectScope
 import com.kyant.backdrop.RoundedRectRefractionShaderString
 import com.kyant.backdrop.RoundedRectRefractionWithDispersionShaderString
+import com.kyant.shapes.RoundedRectangularShape
 
 fun BackdropEffectScope.lens(
     @FloatRange(from = 0.0) refractionHeight: Float,
@@ -58,31 +59,40 @@ fun BackdropEffectScope.lens(
 }
 
 private val BackdropEffectScope.cornerRadii: FloatArray?
-    get() {
-        val shape = shape as? CornerBasedShape ?: return null
-        val size = size
-        val maxRadius = size.minDimension / 2f
-        val isLtr = layoutDirection == LayoutDirection.Ltr
-        val topLeft =
-            if (isLtr) shape.topStart.toPx(size, this)
-            else shape.topEnd.toPx(size, this)
-        val topRight =
-            if (isLtr) shape.topEnd.toPx(size, this)
-            else shape.topStart.toPx(size, this)
-        val bottomRight =
-            if (isLtr) shape.bottomEnd.toPx(size, this)
-            else shape.bottomStart.toPx(size, this)
-        val bottomLeft =
-            if (isLtr) shape.bottomStart.toPx(size, this)
-            else shape.bottomEnd.toPx(size, this)
-        return floatArrayOf(
-            topLeft.fastCoerceAtMost(maxRadius),
-            topRight.fastCoerceAtMost(maxRadius),
-            bottomRight.fastCoerceAtMost(maxRadius),
-            bottomLeft.fastCoerceAtMost(maxRadius)
-        )
+    get() = when (val shape = shape) {
+        is RoundedRectangularShape -> {
+            shape.cornerRadii(size, layoutDirection, this)
+        }
+
+        is CornerBasedShape -> {
+            val size = size
+            val maxRadius = size.minDimension / 2f
+            val isLtr = layoutDirection == LayoutDirection.Ltr
+            val topLeft =
+                if (isLtr) shape.topStart.toPx(size, this)
+                else shape.topEnd.toPx(size, this)
+            val topRight =
+                if (isLtr) shape.topEnd.toPx(size, this)
+                else shape.topStart.toPx(size, this)
+            val bottomRight =
+                if (isLtr) shape.bottomEnd.toPx(size, this)
+                else shape.bottomStart.toPx(size, this)
+            val bottomLeft =
+                if (isLtr) shape.bottomStart.toPx(size, this)
+                else shape.bottomEnd.toPx(size, this)
+            floatArrayOf(
+                topLeft.fastCoerceAtMost(maxRadius),
+                topRight.fastCoerceAtMost(maxRadius),
+                bottomRight.fastCoerceAtMost(maxRadius),
+                bottomLeft.fastCoerceAtMost(maxRadius)
+            )
+        }
+
+        else -> null
     }
 
 private fun throwUnsupportedSDFException(): Nothing {
-    throw UnsupportedOperationException("Only CornerBasedShape is supported in lens effects.")
+    throw UnsupportedOperationException(
+        "Only RoundedRectangularShape or CornerBasedShape is supported in lens effects."
+    )
 }

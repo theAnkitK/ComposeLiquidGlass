@@ -25,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.graphicsLayer
@@ -50,7 +49,7 @@ import com.kyant.backdrop.effects.vibrancy
 import com.kyant.backdrop.highlight.Highlight
 import com.kyant.backdrop.shadow.InnerShadow
 import com.kyant.backdrop.shadow.Shadow
-import com.kyant.capsule.ContinuousCapsule
+import com.kyant.shapes.Capsule
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
@@ -166,7 +165,7 @@ fun LiquidBottomTabs(
                 }
                 .drawBackdrop(
                     backdrop = backdrop,
-                    shape = { ContinuousCapsule },
+                    shape = { Capsule },
                     effects = {
                         vibrancy()
                         blur(8f.dp.toPx())
@@ -203,7 +202,7 @@ fun LiquidBottomTabs(
                     }
                     .drawBackdrop(
                         backdrop = backdrop,
-                        shape = { ContinuousCapsule },
+                        shape = { Capsule },
                         effects = {
                             val progress = dampedDragAnimation.pressProgress
                             vibrancy()
@@ -241,7 +240,7 @@ fun LiquidBottomTabs(
                 .then(dampedDragAnimation.modifier)
                 .drawBackdrop(
                     backdrop = rememberCombinedBackdrop(backdrop, tabsBackdrop),
-                    shape = { ContinuousCapsule },
+                    shape = { Capsule },
                     effects = {
                         val progress = dampedDragAnimation.pressProgress
                         lens(

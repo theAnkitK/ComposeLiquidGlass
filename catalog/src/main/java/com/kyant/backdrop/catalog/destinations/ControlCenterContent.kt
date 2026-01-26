@@ -51,8 +51,8 @@ import com.kyant.backdrop.effects.lens
 import com.kyant.backdrop.effects.vibrancy
 import com.kyant.backdrop.highlight.Highlight
 import com.kyant.backdrop.highlight.HighlightStyle
-import com.kyant.capsule.ContinuousCapsule
-import com.kyant.capsule.ContinuousRoundedRectangle
+import com.kyant.shapes.Capsule
+import com.kyant.shapes.RoundedRectangle
 import kotlinx.coroutines.launch
 
 @Composable
@@ -67,10 +67,10 @@ fun ControlCenterContent() {
     val itemSpacing = 16f.dp
     val itemSize = 68f.dp
     val itemTwoSpanSize = itemSize * 2 + itemSpacing
-    val itemShape = ContinuousRoundedRectangle(itemSize / 2f)
+    val itemShape = RoundedRectangle(itemSize / 2f)
 
     val innerItemSize = 56f.dp
-    val innerItemShape = ContinuousCapsule
+    val innerItemShape = Capsule
     val innerItemIconScale = 0.8f
 
     val inactiveItemColor = Color.White.copy(0.2f)
