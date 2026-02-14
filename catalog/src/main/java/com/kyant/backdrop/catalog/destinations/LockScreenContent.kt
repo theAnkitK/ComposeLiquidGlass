@@ -56,7 +56,7 @@ fun LockScreenContent() {
                         .draggable2D(rememberDraggable2DState { delta -> offset += delta })
                         .drawPlainBackdrop(
                             backdrop = backdrop,
-                            shape = { Capsule },
+                            shape = { Capsule() },
                             effects = {
                                 colorControls(brightness = -0.1f, contrast = 0.75f, saturation = 1.5f)
                                 blur(2f.dp.toPx())
